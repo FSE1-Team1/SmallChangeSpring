@@ -6,9 +6,10 @@ import com.fidelity.model.Client;
 
 public interface ClientDao {
 
-	List<Client> getAllClients();
-	public void insertClient(Client client);
-	public void updateClient(Client client);
-	public void deleteClient(String clientId);
+	public List<Client> getAllClients();
+	public int insertClient(Client client);
+	public int deleteClientIdentification(String id);
+//	public void updateClient(Client client);
+	public int deleteClient(String id);
 	
 }

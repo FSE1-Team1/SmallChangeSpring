@@ -4,10 +4,15 @@ import java.util.Objects;
 
 public class ClientIdentification {
 
+	private String id;
 	private String type;
 	private String value;
 	
-	public ClientIdentification(String type, String value) {
+	public ClientIdentification() {
+		
+	}
+	
+	public ClientIdentification(String id, String type, String value) {
 		super();
 		if(type==null) {
 			throw new NullPointerException("Type cannot be null");
@@ -18,8 +23,13 @@ public class ClientIdentification {
 		if(value==null) {
 			throw new NullPointerException("Value cannot be null");
 		}
+		this.id = id;
 		this.type = type;
 		this.value = value;
+	}
+
+	public String getId() {
+		return id;
 	}
 
 	public String getType() {
@@ -32,24 +42,24 @@ public class ClientIdentification {
 
 	@Override
 	public int hashCode() {
-		return Objects.hash(type, value);
+		return Objects.hash(id, type, value);
 	}
 
 	@Override
 	public boolean equals(Object obj) {
-		if (this == obj)
+		if (this == obj) {
 			return true;
-		if (obj == null)
+		}
+		if (!(obj instanceof ClientIdentification)) {
 			return false;
-		if (getClass() != obj.getClass())
-			return false;
+		}
 		ClientIdentification other = (ClientIdentification) obj;
-		return Objects.equals(type, other.type) && Objects.equals(value, other.value);
+		return Objects.equals(id, other.id) && Objects.equals(type, other.type) && Objects.equals(value, other.value);
 	}
 
 	@Override
 	public String toString() {
-		return "ClientIdentification [type=" + type + ", value=" + value + "]";
+		return "ClientIdentification [id=" + id + ", type=" + type + ", value=" + value + "]";
 	}
-	
+		
 }

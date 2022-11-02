@@ -47,8 +47,6 @@ class TradeHistoryDaoImplTest {
 		TradeHistory history1  = new TradeHistory("T67897", BigDecimal.TEN, BigDecimal.ONE, "buy",  "ea0dd5f8-51b8-40b4-ab1e-a386a1c2c515","1234", BigDecimal.TEN,LocalDate.now());
 		int count = history.insertTradeHistory(history1);
 		assertEquals(count,1);
-		
-		
 	}
 
 }
