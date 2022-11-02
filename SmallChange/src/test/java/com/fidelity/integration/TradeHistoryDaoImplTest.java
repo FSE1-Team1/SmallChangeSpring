@@ -37,7 +37,8 @@ class TradeHistoryDaoImplTest {
 	
 	@Test
 	void testGetAllTradeHistory() {
-		List<TradeHistory> list = history.getTradeHistory();
+		String id = "ea0dd5f8-51b8-40b4-ab1e-a386a1c2c515";
+		List<TradeHistory> list = history.getTradeHistory(id);
 		assert list.size() > 0;
 
 	}

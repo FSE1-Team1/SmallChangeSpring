@@ -3,6 +3,7 @@ package com.fidelity.integration;
 import java.util.List;
 
 import org.apache.ibatis.annotations.Insert;
+import org.apache.ibatis.annotations.Param;
 import org.apache.ibatis.annotations.Result;
 import org.apache.ibatis.annotations.Results;
 import org.apache.ibatis.annotations.Select;
@@ -13,10 +14,9 @@ public interface TradeHistoryMapper {
 
 	@Select("""
 			SELECT "client_id" as clientId, "cash_value" as cashValue,"instrument_id" as instrumentId,"direction" as direction, "quantity" as quantity,"execution_price" as executionPrice,"trade_id" as tradeId, "trade_timestamp" as tradeTimestamp FROM sc_trade_history
+			where "client_id" = #{id}
 			""")
-	
-	
-	public List<TradeHistory> getTradeHistory();
+	public List<TradeHistory> getTradeHistory(@Param("id") String id);
 	
 	
 	@Insert("""
