@@ -6,7 +6,7 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.annotation.ComponentScan;
 
 @SpringBootApplication
-@ComponentScan(basePackages={"com.fidelity.integration", "com.fidelity.smallchange.controller"})
+@ComponentScan(basePackages={"com.fidelity.integration", "com.fidelity.smallchange.controller","com.fidelity.service"})
 @MapperScan(basePackages="com.fidelity.integration")  
 //tell MyBatis where to scan for mapping interface files
 @MapperScan(basePackages="com.fidelity.integration")  
