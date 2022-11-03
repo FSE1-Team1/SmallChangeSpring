@@ -23,8 +23,8 @@ public enum DbTestUtils {
 	INSTANCE;
 	
 	private static final String DB_URL = "jdbc:oracle:thin:@//localhost:1521/xepdb1";
-	private static final String USER = "scott";
-	private static final String PASSWORD = "TIGER";
+	private static final String USER = "hr";
+	private static final String PASSWORD = "hr";
 	
 	private static final String SQL_SCRIPT = "sql/emp_populate.sql";
 

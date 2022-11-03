@@ -15,6 +15,10 @@ public class Client {
 	private String postalCode;
 	private ClientIdentification identification;
 	
+	public Client() {
+		
+	}
+	
 	public Client(String id, String firstName, String lastName, LocalDate dateOfBirth, String email, String password,
 			String country, String postalCode, ClientIdentification identification) {
 		super();
@@ -147,12 +151,12 @@ public class Client {
 
 	@Override
 	public boolean equals(Object obj) {
-		if (this == obj)
+		if (this == obj) {
 			return true;
-		if (obj == null)
+		}
+		if (!(obj instanceof Client)) {
 			return false;
-		if (getClass() != obj.getClass())
-			return false;
+		}
 		Client other = (Client) obj;
 		return Objects.equals(country, other.country) && Objects.equals(dateOfBirth, other.dateOfBirth)
 				&& Objects.equals(email, other.email) && Objects.equals(firstName, other.firstName)
@@ -165,7 +169,7 @@ public class Client {
 	public String toString() {
 		return "Client [id=" + id + ", firstName=" + firstName + ", lastName=" + lastName + ", dateOfBirth="
 				+ dateOfBirth + ", email=" + email + ", password=" + password + ", country=" + country + ", postalCode="
-				+ postalCode + ", identification=" + identification.toString() + "]";
+				+ postalCode + ", identification=" + identification + "]";
 	}
 	
 }

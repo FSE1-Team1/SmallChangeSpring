@@ -6,7 +6,7 @@ import com.fidelity.model.TradeHistory;
 
 public interface TradeHistoryDao {
 
-	List<TradeHistory> getTradeHistory();
+	List<TradeHistory> getTradeHistory(String id);
 	
 	int insertTradeHistory(TradeHistory history);
 	
