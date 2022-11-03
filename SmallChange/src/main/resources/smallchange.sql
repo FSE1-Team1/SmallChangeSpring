@@ -92,5 +92,17 @@ INSERT INTO SC_HOLDING ("client_id", "instrument_id", "direction", "no_of_shares
 INSERT INTO SC_PREFERENCES("client_id", "investment_purpose", "risk_tolerance", "income_category", "length_of_investment") VALUES ('ea0dd5f8-51b8-40b4-ab1e-a386a1c2c515','Savings', 'Average', '20000-60000', '5-7years');
 INSERT INTO SC_TRADE_HISTORY ("client_id","cash_value","direction","trade_id","instrument_id","quantity","execution_price","trade_timestamp") VALUES('ea0dd5f8-51b8-40b4-ab1e-a386a1c2c515',500,'B','T123456','T67897',1,300,null);
 
+create or replace PROCEDURE proc_delete_instrument_delete_holding (
+	parm_instrument_to_delete IN VARCHAR2
+)
+IS
+BEGIN
+
+    DELETE FROM SC_PRICE WHERE "instrument_id"=parm_instrument_to_delete;
+	DELETE FROM SC_HOLDING WHERE "instrument_id"=parm_instrument_to_delete;
+    DELETE FROM SC_INSTRUMENT WHERE "instrument_id"=parm_instrument_to_delete;
+
+END;
+
 
 COMMIT;
