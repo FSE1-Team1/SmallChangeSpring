@@ -49,12 +49,12 @@ public class ClientController {
 		return result;
 	}
 	
-	@GetMapping(value = "/clients/{id}", produces = MediaType.APPLICATION_JSON_VALUE)
-	public ResponseEntity<Client> queryForGetClientById(@PathVariable String id) {
+	@GetMapping(value = "/clients/{email}", produces = MediaType.APPLICATION_JSON_VALUE)
+	public ResponseEntity<Client> queryForGetClientByEmail(@PathVariable String email) {
 		ResponseEntity<Client> result;
 		Client client;
 		try {
-			client = service.queryForGetClientById(id);
+			client = service.queryForGetClientByEmail(email);
 		} catch(RuntimeException e) {
 //			logger.error("Server side error", e);
 			throw new ServerErrorException(DB_ERROR_MSG, e);

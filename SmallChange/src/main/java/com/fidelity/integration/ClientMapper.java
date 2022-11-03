@@ -45,9 +45,9 @@ public interface ClientMapper {
 	@Select("""
 				SELECT c."client_id", c."first_name", c."last_name", c."dob", c."email", c."password", c."country", c."postal_code"
 				FROM sc_client c
-				WHERE c."client_id" = #{value}
+				WHERE c."email" = #{value}
 			""")
-	public Client getClientById(String id);
+	public Client getClientByEmail(String email);
 	
 	@Results({
 		@Result(property = "id", column = "client_id", id = true),

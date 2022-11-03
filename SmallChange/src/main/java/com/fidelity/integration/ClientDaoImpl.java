@@ -26,8 +26,8 @@ public class ClientDaoImpl implements ClientDao {
 	}
 	
 	@Override
-	public Client getClientById(String id) {
-		return mapper.getClientById(id);
+	public Client getClientByEmail(String email) {
+		return mapper.getClientByEmail(email);
 	}
 	
 	@Override

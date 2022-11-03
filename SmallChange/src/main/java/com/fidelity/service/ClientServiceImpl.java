@@ -21,8 +21,8 @@ public class ClientServiceImpl implements ClientService {
 	}
 	
 	@Override
-	public Client queryForGetClientById(String id) {
-		return dao.getClientById(id);
+	public Client queryForGetClientByEmail(String email) {
+		return dao.getClientByEmail(email);
 	}
 	
 	@Override

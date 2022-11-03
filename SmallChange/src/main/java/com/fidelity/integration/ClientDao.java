@@ -8,7 +8,7 @@ import com.fidelity.model.ClientIdentification;
 public interface ClientDao {
 
 	public List<Client> getAllClients();
-	public Client getClientById(String id);
+	public Client getClientByEmail(String email);
 	public int insertClient(Client client);
 	public int insertClientIdentification(ClientIdentification identification);
 	public int deleteClientIdentification(String id);
