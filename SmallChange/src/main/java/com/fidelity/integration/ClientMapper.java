@@ -32,6 +32,24 @@ public interface ClientMapper {
 	public List<Client> getAllClients();
 	
 	@Results({
+			@Result(property = "id", column = "client_id", id = true),
+			@Result(property = "firstName", column = "first_name"),
+			@Result(property = "lastName", column = "last_name"),
+			@Result(property = "dateOfBirth", column = "dob"),
+			@Result(property = "email", column = "email"),
+			@Result(property = "password", column = "password"),
+			@Result(property = "country", column = "country"),
+			@Result(property = "postalCode", column = "postal_code"),
+			@Result(property = "identification", column = "client_id", one = @One(select = "com.fidelity.integration.ClientMapper.getClientIdentification"))
+	})
+	@Select("""
+				SELECT c."client_id", c."first_name", c."last_name", c."dob", c."email", c."password", c."country", c."postal_code"
+				FROM sc_client c
+				WHERE c."client_id" = #{value}
+			""")
+	public Client getClientById(String id);
+	
+	@Results({
 		@Result(property = "id", column = "client_id", id = true),
 		@Result(property = "type", column = "type"),
 		@Result(property = "value", column = "value")

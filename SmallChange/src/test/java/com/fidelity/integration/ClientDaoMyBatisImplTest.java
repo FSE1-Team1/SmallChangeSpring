@@ -33,15 +33,15 @@ class ClientDaoMyBatisImplTest {
 	
 	@Test
 	void testInsertClient() {
-		Client client2 = new Client("c7cb85bf-c6df-4d43-a23c-d3b0ddd4743b", "Pavithra", "B", LocalDate.of(2000, 01, 01), "pavithrab@gmail.com", "Testing123*", "IN","18000000", new ClientIdentification("c7cb85bf-c6df-4d43-a23c-d3b0ddd4743b" ,"Passport", "18000000"));
+		Client client2 = new Client("a", "test", "B", LocalDate.of(2000, 01, 01), "test@gmail.com", "Testing123*", "IN","18000000", new ClientIdentification("a" ,"Passport", "18000000"));
 		int count = clientDao.insertClient(client2);
 		assertEquals(count,1);
 	}
 	
 	@Test
 	void testDeleteClient() {
-		String id = "c7cb85bf-c6df-4d43-a23c-d3b0ddd4743b";
-		Client client2 = new Client(id, "Pavithra", "B", LocalDate.of(2000, 01, 01), "pavithrab@gmail.com", "Testing123*", "IN","18000000", new ClientIdentification("c7cb85bf-c6df-4d43-a23c-d3b0ddd4743b" ,"Passport", "18000000"));
+		String id = "a";
+		Client client2 = new Client(id, "test", "B", LocalDate.of(2000, 01, 01), "test@gmail.com", "Testing123*", "IN","18000000", new ClientIdentification("a" ,"Passport", "18000000"));
 		int count = clientDao.insertClient(client2);
 		assertEquals(count,1);
 		int count2 = clientDao.deleteClientIdentification(id);

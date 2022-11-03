@@ -26,6 +26,11 @@ public class ClientDaoImpl implements ClientDao {
 	}
 	
 	@Override
+	public Client getClientById(String id) {
+		return mapper.getClientById(id);
+	}
+	
+	@Override
 	public int insertClient(Client client) {
 		int count = mapper.insertClient(client);
 		if(count==1) {

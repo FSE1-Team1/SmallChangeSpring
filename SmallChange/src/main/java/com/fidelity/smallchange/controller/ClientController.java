@@ -49,6 +49,24 @@ public class ClientController {
 		return result;
 	}
 	
+	@GetMapping(value = "/clients/{id}", produces = MediaType.APPLICATION_JSON_VALUE)
+	public ResponseEntity<Client> queryForGetClientById(@PathVariable String id) {
+		ResponseEntity<Client> result;
+		Client client;
+		try {
+			client = service.queryForGetClientById(id);
+		} catch(RuntimeException e) {
+//			logger.error("Server side error", e);
+			throw new ServerErrorException(DB_ERROR_MSG, e);
+		}
+		if(client != null) {
+			result = ResponseEntity.ok().body(client);
+		} else {
+			result = ResponseEntity.noContent().build();
+		}
+		return result;
+	}
+	
 	@PostMapping(value = "/clients", produces=MediaType.APPLICATION_JSON_VALUE, consumes=MediaType.APPLICATION_JSON_VALUE)
 	public DatabaseRequestResult queryForInsertClient(@RequestBody Client client) {
 		int rows = 0;
@@ -64,7 +82,7 @@ public class ClientController {
 		return new DatabaseRequestResult(rows);
 	}
 	
-	@PostMapping(value = "/clients/clientIdentification", produces=MediaType.APPLICATION_JSON_VALUE, consumes=MediaType.APPLICATION_JSON_VALUE)
+	@PostMapping(value = "/clients/client-identification", produces=MediaType.APPLICATION_JSON_VALUE, consumes=MediaType.APPLICATION_JSON_VALUE)
 	public DatabaseRequestResult queryForInsertClientClientIdentification(@RequestBody ClientIdentification identification) {
 		int rows = 0;
 		try {
@@ -94,19 +112,5 @@ public class ClientController {
 		return new DatabaseRequestResult(rows);
 	}
 	
-//	@DeleteMapping(value="/clients/{id}", produces=MediaType.APPLICATION_JSON_VALUE)
-//	public DatabaseRequestResult deleteClientIdentification(@PathVariable String id) {
-//		int rows = 0;
-//		try {
-//			rows = service.queryToDeleteClientIdentification(id);
-//		} catch (RuntimeException e) {
-////			logger.error("Server side error", e);
-//			throw new ServerErrorException(DB_ERROR_MSG, e);
-//		}
-//		if(rows == 0) {
-//			throw new ResponseStatusException(HttpStatus.NOT_FOUND, "Client Identification not found in the database with id = " + id);
-//		}
-//		return new DatabaseRequestResult(rows);
-//	}
 	
 }
