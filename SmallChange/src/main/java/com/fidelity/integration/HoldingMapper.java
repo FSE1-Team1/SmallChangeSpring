@@ -18,18 +18,17 @@ import com.fidelity.model.Price;
 public interface HoldingMapper {
 
 	@Select("""
-			select "client_id" as clientId,  "direction" as direction, "no_of_shares" as noOfShares from sc_holding where "client_id"= #{clientId}
+			select "client_id" as clientId, "instrument_id" as instrumentId,  "direction" as direction, "no_of_shares" as noOfShares from sc_holding where "client_id"= #{clientId}
 			""")
 	@Results({
 		@Result(property ="clientId", column = "clientId", id = true ),
-		//@Result(property="instrumentId", column="instrument",one = @One(select = "com.fidelity.integration.HoldingMapper.getInstrument")),
+		@Result(property="instrument", column="instrumentId",one = @One(select = "com.fidelity.integration.InstrumentMapper.queryInstrumentsById")),
 		@Result(property ="direction", column = "direction"),
 		@Result(property ="noOfShares", column = "noOfShares")
 	})
 	List<Holding> getAllHoldings(String clientId);
 	
 	
-	Instrument getInstrument(String id);
 	
 	@Insert("""
 			INSERT INTO SC_HOLDING ("client_id", "instrument_id", "direction", "no_of_shares") values (#{clientId},#{instrumentId},#{direction},#{noOfShares})

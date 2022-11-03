@@ -14,11 +14,9 @@ public class TradeHistory {
 	private BigDecimal cashValue ;
 	private LocalDate tradeTimestamp;
 	
-	public TradeHistory() {
-		
-	}
+
 	public TradeHistory(String instrumentId, BigDecimal quantity, BigDecimal executionPrice, String direction,
-			String clientId, String tradeId, BigDecimal cashValue, LocalDate tradeHistory) {
+			String clientId, String tradeId, BigDecimal cashValue) {
 		
 		if(instrumentId == null || clientId == null || tradeId == null || instrumentId.isEmpty() || clientId.isEmpty() || tradeId.isEmpty())
 			throw new IllegalArgumentException("instument id,client id , trade id cannot be null or empty");
@@ -30,7 +28,7 @@ public class TradeHistory {
 		this.clientId = clientId;
 		this.tradeId = tradeId;
 		this.cashValue = cashValue;
-		this.tradeTimestamp = tradeHistory;
+		this.tradeTimestamp = null;
 	}
 	public String getInstrumentId() {
 		return instrumentId;
