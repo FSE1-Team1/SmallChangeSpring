@@ -54,7 +54,8 @@ class AccountTest {
 				maxQuantity, categoryId,price);
 		String direction="buy";
 		BigDecimal noOfShares= new BigDecimal(10);
-		Holding holding =new Holding(instrument,direction,noOfShares);
+		String id="1";
+		Holding holding =new Holding(id,instrument,direction,noOfShares);
 		int total= account.addHolding(holding);
 		assertEquals(total, 1);
 	}
@@ -72,7 +73,8 @@ class AccountTest {
 				maxQuantity, categoryId,price);
 		String direction="buy";
 		BigDecimal noOfShares= new BigDecimal(10);
-		Holding holding =new Holding(instrument,direction,noOfShares);
+		String id="1";
+		Holding holding =new Holding(id,instrument,direction,noOfShares);
 		account.addHolding(holding);
 		int total= account.removeHolding(holding);
 		assertEquals(total, 0);
@@ -104,7 +106,8 @@ class AccountTest {
 				maxQuantity, categoryId,price);
 		String direction="buy";
 		BigDecimal noOfShares= new BigDecimal(10);
-		Holding holding =new Holding(instrument,direction,noOfShares);
+		String id="1";
+		Holding holding =new Holding(id,instrument,direction,noOfShares);
 		account.addHolding(holding);
 		account.addHolding(holding);
 		account.addHolding(holding);
@@ -133,9 +136,10 @@ class AccountTest {
 				maxQuantity, categoryId,price);
 		String direction="buy";
 		BigDecimal noOfShares= new BigDecimal(10);
-		Holding holding =new Holding(instrument,direction,noOfShares);
+		String id="1";
+		Holding holding =new Holding(id,instrument,direction,noOfShares);
 		account.addHolding(holding);
-		Holding holding1 =new Holding(instrument,direction,noOfShares);
+		Holding holding1 =new Holding(id,instrument,direction,noOfShares);
 		holding1.setPrice(new BigDecimal(200));
 		assertThrows(IllegalArgumentException.class, ()-> {
 			account.removeHolding(holding1);
