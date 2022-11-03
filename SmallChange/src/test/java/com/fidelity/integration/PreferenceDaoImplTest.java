@@ -48,14 +48,14 @@ class PreferenceDaoImplTest {
 				assertEquals(count,1);
 	}
 
-//	@Test
-//	void testUpdatePreferences() {
-//		String clientId = "ea0dd5f8-51b8-40b4-ab1e-a386a1c2c515";
-//		Preferences preference = new Preferences(clientId,"Savings","Average","40,000 - 70,000","5-10 years");
-//		
-//		int count = dao.updatePreference(preference);
-//				assertEquals(count,1);
-//	}
+	@Test
+	void testUpdatePreferences() {
+		String clientId = "ea0dd5f8-51b8-40b4-ab1e-a386a1c2c515";
+		Preferences preference = new Preferences(clientId,"Savings","Average","40,000 - 70,000","5-10 years");
+		
+		int count = dao.updatePreference(preference);
+				assertEquals(count,1);
+	}
 	
 	@Test
 	void testDeletePreferences() {
