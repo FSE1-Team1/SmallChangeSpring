@@ -15,7 +15,10 @@ public class Instrument {
 	private String categoryId;
 	private Price price;
 
-	public Instrument() {}
+	public Instrument() {
+	}
+
+
 	public Instrument(String instrumentId, String instrumentDescription, 
 			String externalId, String externalIdType, int minQuantity, 
 			int maxQuantity, String categoryId, Price price) {

@@ -28,18 +28,18 @@ public class InstrumentDaoImpl implements InstrumentDao {
 	}
 
 	@Override
-	public boolean insertInstrument(Instrument instrument) {
-		return mapper.insertInstrument(instrument)==1;
+	public int insertInstrument(Instrument instrument) {
+		return mapper.insertInstrument(instrument);
 	}
 
 	@Override
-	public boolean updateInstrument(Instrument instrument) {
-		return mapper.updateInstrument(instrument)==1;
+	public int updateInstrument(Instrument instrument) {
+		return mapper.updateInstrument(instrument);
 	}
 
 	@Override
-	public boolean deleteInstrument(String instrumentId) {
-		return mapper.deleteInstrument(instrumentId)==1;
+	public void deleteInstrument(String instrumentId) {
+		mapper.deleteInstrument(instrumentId);
 	}
 
 }

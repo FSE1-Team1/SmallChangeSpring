@@ -10,10 +10,10 @@ public interface InstrumentDao {
 	
 	public abstract Instrument queryInstrumentById(String instrumentId);
 	
-	public abstract boolean insertInstrument(Instrument instrument);
+	public abstract int insertInstrument(Instrument instrument);
 	
-	public abstract boolean updateInstrument(Instrument instrument);
+	public abstract int updateInstrument(Instrument instrument);
 	
-	public abstract boolean deleteInstrument(String instrumentId);
+	public abstract void deleteInstrument(String instrumentId);
 
 }

@@ -49,7 +49,7 @@ class HoldingTest {
 	
 	@Test
 	void testGetGain() {
-		assertEquals(holding.getGain(), new BigDecimal(0).setScale(2));
+		assertEquals(holding.getGain(), new BigDecimal(0));
 	}
 	
 	@Test
