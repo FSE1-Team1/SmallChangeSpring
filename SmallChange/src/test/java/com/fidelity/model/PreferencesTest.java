@@ -11,7 +11,7 @@ class PreferencesTest {
 	Preferences preferences3;
 	@BeforeEach
 	void setUp() throws Exception {
-		preferences3 = new Preferences("Save Money","Below Average","40,001 - 60,000","5-7 years");
+		preferences3 = new Preferences("ea0dd5f8-51b8-40b4-ab1e-a386a1c2c515","Save Money","Below Average","40,001 - 60,000","5-7 years");
 	}
 
 	@AfterEach
@@ -25,13 +25,13 @@ class PreferencesTest {
 	}
 	@Test
 	void checkObjectNotEqualInvestmentPurpose() {
-		Preferences preference = new Preferences("Saving for retirement","Below Average","40,001 - 60,000","5-7 years");
+		Preferences preference = new Preferences("ea0dd5f8-51b8-40b4-ab1e-a386a1c2c515","Saving for retirement","Below Average","40,001 - 60,000","5-7 years");
 		assertNotEquals(preference,preferences3);
 	}
 	
 	@Test
 	void checkObjectEqual() {
-		Preferences preference3 = new Preferences("Save Money","Below Average","40,001 - 60,000","5-7 years");
+		Preferences preference3 = new Preferences("ea0dd5f8-51b8-40b4-ab1e-a386a1c2c515","Save Money","Below Average","40,001 - 60,000","5-7 years");
 		assertEquals(preference3,preferences3);
 	}
 	

@@ -1,25 +1,43 @@
 package com.fidelity.model;
 
+import java.util.Objects;
+
 public class Preferences {
 
-	public String investmentPurpose;
-	public String riskTolerance;
-	public String incomeCategory;
-	public String lengthOfInvestment;
-	public Preferences(String investmentPurpose, String riskTolerance, String incomeCategory,
-			String lengthOfInvestment) {
-		super();
+	private String clientId;
+	private String investmentPurpose;
+	private String riskTolerance;
+	private String incomeCategory;
+	private String lengthOfInvestment;
 	
+	public Preferences() {
+		
+	}
+	
+	public Preferences(String clientId,String investmentPurpose, String riskTolerance, String incomeCategory,
+			String lengthOfInvestment) {
+		this.clientId = clientId;
 		this.investmentPurpose = investmentPurpose;
 		this.riskTolerance = riskTolerance;
 		this.incomeCategory = incomeCategory;
 		this.lengthOfInvestment = lengthOfInvestment;
 		
-		setIncomeCategory(incomeCategory);
-		setInvestmentPurpose(investmentPurpose);
-		setLengthOfInvestment(lengthOfInvestment);
-		setRiskTolerance(riskTolerance);
 	}
+	public Preferences(String investmentPurpose, String riskTolerance, String incomeCategory,String lengthOfInvestment) {
+		// TODO Auto-generated constructor stub
+		this.investmentPurpose = investmentPurpose;
+		this.riskTolerance = riskTolerance;
+		this.incomeCategory = incomeCategory;
+		this.lengthOfInvestment = lengthOfInvestment;
+	}
+
+	public String getClientId() {
+		return clientId;
+	}
+	public void setClientId(String clientId) {
+		this.clientId = clientId;
+	}
+
 	public String getInvestmentPurpose() {
 		return investmentPurpose;
 	}
@@ -44,15 +62,10 @@ public class Preferences {
 	public void setLengthOfInvestment(String lengthOfInvestment) {
 		this.lengthOfInvestment = lengthOfInvestment;
 	}
+	
 	@Override
 	public int hashCode() {
-		final int prime = 31;
-		int result = 1;
-		result = prime * result + ((incomeCategory == null) ? 0 : incomeCategory.hashCode());
-		result = prime * result + ((investmentPurpose == null) ? 0 : investmentPurpose.hashCode());
-		result = prime * result + ((lengthOfInvestment == null) ? 0 : lengthOfInvestment.hashCode());
-		result = prime * result + ((riskTolerance == null) ? 0 : riskTolerance.hashCode());
-		return result;
+		return Objects.hash(clientId, incomeCategory, investmentPurpose, lengthOfInvestment, riskTolerance);
 	}
 	@Override
 	public boolean equals(Object obj) {
@@ -63,29 +76,18 @@ public class Preferences {
 		if (getClass() != obj.getClass())
 			return false;
 		Preferences other = (Preferences) obj;
-		if (incomeCategory == null) {
-			if (other.incomeCategory != null)
-				return false;
-		} else if (!incomeCategory.equals(other.incomeCategory))
-			return false;
-		if (investmentPurpose == null) {
-			if (other.investmentPurpose != null)
-				return false;
-		} else if (!investmentPurpose.equals(other.investmentPurpose))
-			return false;
-		if (lengthOfInvestment == null) {
-			if (other.lengthOfInvestment != null)
-				return false;
-		} else if (!lengthOfInvestment.equals(other.lengthOfInvestment))
-			return false;
-		if (riskTolerance == null) {
-			if (other.riskTolerance != null)
-				return false;
-		} else if (!riskTolerance.equals(other.riskTolerance))
-			return false;
-		return true;
+		return Objects.equals(clientId, other.clientId) && Objects.equals(incomeCategory, other.incomeCategory)
+				&& Objects.equals(investmentPurpose, other.investmentPurpose)
+				&& Objects.equals(lengthOfInvestment, other.lengthOfInvestment)
+				&& Objects.equals(riskTolerance, other.riskTolerance);
 	}
 	
+	@Override
+	public String toString() {
+		return "Preferences [clientId=" + clientId + ", investmentPurpose=" + investmentPurpose + ", riskTolerance="
+				+ riskTolerance + ", incomeCategory=" + incomeCategory + ", lengthOfInvestment=" + lengthOfInvestment
+				+ "]";
+	}
 	
 	
 }
