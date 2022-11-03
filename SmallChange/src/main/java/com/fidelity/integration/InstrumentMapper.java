@@ -28,8 +28,8 @@ public interface InstrumentMapper {
 		@Result(property="minQuantity", column="min_quantity"),
 		@Result(property="maxQuantity", column="max_quantity"),
 		@Result(property="categoryId", column="category_id"),
-//		@Result(property="price", column="instrument_id",
-//		one = @One(select="com.fidelity.integration.PriceMapper.GetAllPrices"))
+		@Result(property="price", column="instrument_id",
+		one = @One(select="com.fidelity.integration.PriceMapper.queryPrice"))
 		})
 	List<Instrument> queryAllInstruments();
 
@@ -44,8 +44,8 @@ public interface InstrumentMapper {
 		@Result(property="minQuantity", column="min_quantity"),
 		@Result(property="maxQuantity", column="max_quantity"),
 		@Result(property="categoryId", column="category_id"),
-//		@Result(property="price", column="instrument_id",
-//		one = @One(select="com.fidelity.integration.PriceMapper.GetPriceById"))
+		@Result(property="price", column="instrument_id",
+		one = @One(select="com.fidelity.integration.PriceMapper.queryPrice"))
 		})
 	Instrument queryInstrumentsById(String instrumentId);
 

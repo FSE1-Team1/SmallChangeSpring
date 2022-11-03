@@ -1,4 +1,4 @@
-package com.fidelity.service;
+package com.fidelity.smallchange.controller;
 
 import java.util.List;
 
@@ -23,12 +23,12 @@ import com.fidelity.restservices.DatabaseRequestResult;
 
 @RestController
 @RequestMapping("/instruments")
-public class InstrumentService {
+public class InstrumentController {
 	
 	@Autowired
 	private InstrumentDaoImpl dao;
 	
-	public InstrumentService() {
+	public InstrumentController() {
 		
 	}
 	
