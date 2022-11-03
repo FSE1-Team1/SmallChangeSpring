@@ -52,7 +52,7 @@ public interface ClientMapper {
 	
 	@Insert("""
 				INSERT
-				INTO sc_client_identification("client_id", "type", "value")
+				INTO sc_client_identification ("client_id", "type", "value")
 				VALUES (#{id}, #{type}, #{value})
 			""")
 	public int insertClientIdentification(ClientIdentification identification);
