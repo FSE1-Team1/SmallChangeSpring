@@ -28,7 +28,8 @@ class HoldingTest {
 				maxQuantity, categoryId,price);
 		String direction="buy";
 		BigDecimal noOfShares= new BigDecimal(10);
-		holding =new Holding(instrument,direction,noOfShares);
+		String id="1";
+		holding =new Holding(id,instrument,direction,noOfShares);
 	}
 
 	@AfterEach

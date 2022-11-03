@@ -15,35 +15,35 @@ import com.fidelity.model.Instrument;
 public interface InstrumentMapper {
 
 	@Select("""
-			SELECT "instrument_id","instrument_description","external_id","external_id_type","min_quantity","max_quantity","category_id" FROM SC_Instrument
+			SELECT * FROM SC_Instrument
 			""")
-	@Results({
-		@Result(property="instrumentId", column="instrument_id", id=true),
-		@Result(property="instrumentDescription", column="instrument_description"),
-		@Result(property="externalId", column="external_id"),
-		@Result(property="externalIdType", column="external_id_type"),
-		@Result(property="minQuantity", column="min_quantity"),
-		@Result(property="maxQuantity", column="max_quantity"),
-		@Result(property="categoryId", column="category_id"),
-//		@Result(property="price", column="instrument_id",
-//		one = @One(select="com.fidelity.integration.PriceMapper.GetAllPrices"))
-		})
+//	@Results({
+//		@Result(property="instrumentId", column="instrument_id", id=true),
+//		@Result(property="instrumentDescription", column="instrument_description"),
+//		@Result(property="externalId", column="external_id"),
+//		@Result(property="externalIdType", column="external_id_type"),
+//		@Result(property="minQuantity", column="min_quantity"),
+//		@Result(property="maxQuantity", column="max_quantity"),
+//		@Result(property="categoryId", column="category_id"),
+////		@Result(property="price", column="instrument_id",
+////		one = @One(select="com.fidelity.integration.PriceMapper.GetAllPrices"))
+//		})
 	List<Instrument> queryAllInstruments();
 
 	@Select("""
-			SELECT "instrument_id","instrument_description","external_id","external_id_type","min_quantity","max_quantity","category_id" FROM SC_Instrument WHERE "instrument_id"=#{value}
+			SELECT * FROM SC_Instrument
 			""")
-	@Results({
-		@Result(property="instrumentId", column="instrument_id", id=true),
-		@Result(property="instrumentDescription", column="instrument_description"),
-		@Result(property="externalId", column="external_id"),
-		@Result(property="externalIdType", column="external_id_type"),
-		@Result(property="minQuantity", column="min_quantity"),
-		@Result(property="maxQuantity", column="max_quantity"),
-		@Result(property="categoryId", column="category_id"),
-		@Result(property="price", column="instrument_id",
-		one = @One(select="com.fidelity.integration.PriceMapper.GetPriceById"))
-		})
+//	@Results({
+//		@Result(property="instrumentId", column="instrument_id", id=true),
+//		@Result(property="instrumentDescription", column="instrument_description"),
+//		@Result(property="externalId", column="external_id"),
+//		@Result(property="externalIdType", column="external_id_type"),
+//		@Result(property="minQuantity", column="min_quantity"),
+//		@Result(property="maxQuantity", column="max_quantity"),
+//		@Result(property="categoryId", column="category_id")
+////		@Result(property="price", column="instrument_id",
+////		one = @One(select="com.fidelity.integration.PriceMapper.GetPriceById"))
+//		})
 	Instrument queryInstrumentsById(String instrumentId);
 
 	@Insert("""
