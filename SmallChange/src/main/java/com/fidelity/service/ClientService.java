@@ -9,6 +9,7 @@ import com.fidelity.model.ClientIdentification;
 public interface ClientService {
 
 	public List<Client> queryForAllClients();
+	public Client queryForGetClientById(String id);
 	public int queryToInsertClient(Client client);
 	public int queryToInsertClientIdentification(ClientIdentification identification);
 	public int queryToDeleteClient(String id);
