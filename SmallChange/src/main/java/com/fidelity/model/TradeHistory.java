@@ -16,7 +16,7 @@ public class TradeHistory {
 	
 
 	public TradeHistory(String instrumentId, BigDecimal quantity, BigDecimal executionPrice, String direction,
-			String clientId, String tradeId, BigDecimal cashValue) {
+			String clientId, String tradeId, BigDecimal cashValue, LocalDate tradeTimestamp) {
 		
 		if(instrumentId == null || clientId == null || tradeId == null || instrumentId.isEmpty() || clientId.isEmpty() || tradeId.isEmpty())
 			throw new IllegalArgumentException("instument id,client id , trade id cannot be null or empty");

@@ -18,6 +18,7 @@ import org.springframework.web.server.ResponseStatusException;
 
 import com.fidelity.integration.HoldingDaoImp;
 import com.fidelity.model.Holding;
+import com.fidelity.model.HoldingReturn;
 
 @RestController
 @RequestMapping("/holdings")
@@ -31,8 +32,8 @@ public class HoldingsController {
 
 	
 	@GetMapping("/all/{clientId}")
-	public ResponseEntity<List<Holding>> getHoldings(@PathVariable String clientId) {
-		List<Holding> holdings = null;
+	public ResponseEntity<List<HoldingReturn>> getHoldings(@PathVariable String clientId) {
+		List<HoldingReturn> holdings = null;
 
 		try {
 			holdings = dao.getAllHoldings(clientId);
@@ -51,7 +52,7 @@ public class HoldingsController {
 			throw new ResponseStatusException(HttpStatus.NO_CONTENT);
 		}
 
-		logger.info("Successful retrieval");
+		logger.info("Successful retrieval11");
 		return ResponseEntity.ok(holdings);
 	}
 	

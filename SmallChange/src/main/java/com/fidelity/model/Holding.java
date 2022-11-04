@@ -62,8 +62,8 @@ public class Holding {
 		this.price = price;
 	}
 
-	public void setGain(BigDecimal gain) {
-		this.gain = gain;
+	public void setGain() {
+		this.gain = instrument.getPrice().getBidPrice().subtract(price);
 	}
 
 	public void setNoOfShares(BigDecimal noOfShares) {
@@ -76,6 +76,8 @@ public class Holding {
 
 	public void setInstrument(Instrument instrument) {
 		this.instrument = instrument;
+		this.price= instrument.getPrice().getBidPrice();
+		setGain();
 	}
 
 	@Override
