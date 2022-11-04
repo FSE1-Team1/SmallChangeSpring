@@ -59,14 +59,6 @@ public interface InstrumentMapper {
 			""")
 	int updateInstrument(Instrument instrument);
 
-//	@Delete("""
-//			DELETE FROM SC_HOLDING WHERE "instrument_id"=#{instrumentId}
-//			""")
-//	@Delete("""
-//			DELETE FROM SC_HOLDING WHERE "instrument_id"=#{instrumentId}
-//			GO
-//			DELETE FROM SC_INSTRUMENT WHERE "instrument_id"=#{instrumentId}
-//			""")
 	@Delete("{ CALL proc_delete_instrument_delete_holding(#{instrDelete, mode=IN, jdbcType=VARCHAR}) }")
 	@Options(statementType = StatementType.CALLABLE)
 	void deleteInstrument(@Param("instrDelete") String instrumentId);
