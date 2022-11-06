@@ -14,7 +14,9 @@ public class TradeHistory {
 	private BigDecimal cashValue ;
 	private LocalDate tradeTimestamp;
 	
-
+	public TradeHistory() {
+		
+	}
 	public TradeHistory(String instrumentId, BigDecimal quantity, BigDecimal executionPrice, String direction,
 			String clientId, String tradeId, BigDecimal cashValue, LocalDate tradeTimestamp) {
 		
@@ -28,7 +30,7 @@ public class TradeHistory {
 		this.clientId = clientId;
 		this.tradeId = tradeId;
 		this.cashValue = cashValue;
-		this.tradeTimestamp = null;
+		this.tradeTimestamp = tradeTimestamp;
 	}
 	public String getInstrumentId() {
 		return instrumentId;
@@ -81,11 +83,11 @@ public class TradeHistory {
 	public void setCashValue(BigDecimal cashValue) {
 		this.cashValue = cashValue;
 	}
-	public LocalDate getTradeHistory() {
+	public LocalDate getTradeTimestamp() {
 		return tradeTimestamp;
 	}
-	public void setTradeHistory(LocalDate tradeHistory) {
-		this.tradeTimestamp = tradeHistory;
+	public void setTradeTimestamo(LocalDate tradeTimestamp) {
+		this.tradeTimestamp = tradeTimestamp;
 	}
 	@Override
 	public int hashCode() {
