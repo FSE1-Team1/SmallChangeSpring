@@ -8,7 +8,7 @@ import com.fidelity.model.HoldingReturn;
 public interface HoldingDao {
 
 	List<HoldingReturn> getAllHoldings(String clientId);
-	int insertHolding(Holding holding);
+	int insertHolding(HoldingReturn holding);
 	int deleteHolding(String clientId, String instrumentId);
-	int updateHolding(Holding holding);
+	int updateHolding(HoldingReturn holding);
 }

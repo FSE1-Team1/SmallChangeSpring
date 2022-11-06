@@ -19,6 +19,7 @@ import org.springframework.test.context.junit.jupiter.SpringExtension;
 import org.springframework.transaction.annotation.Transactional;
 
 import com.fidelity.model.Holding;
+import com.fidelity.model.HoldingReturn;
 import com.fidelity.model.Instrument;
 import com.fidelity.model.Price;
 
@@ -38,7 +39,7 @@ class HoldingDaoImpTest {
 	@Test
 	void test() {
 		String id="ea0dd5f8-51b8-40b4-ab1e-a386a1c2c515" ;
-		List<Holding> holdings=dao.getAllHoldings(id);
+		List<HoldingReturn> holdings=dao.getAllHoldings(id);
 		assert holdings.size()>0;
 	}
 	

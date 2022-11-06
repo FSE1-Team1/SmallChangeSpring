@@ -52,7 +52,7 @@ public class HoldingsController {
 			throw new ResponseStatusException(HttpStatus.NO_CONTENT);
 		}
 
-		logger.info("Successful retrieval11");
+		logger.info("Successful retrieval");
 		return ResponseEntity.ok(holdings);
 	}
 	
@@ -72,12 +72,12 @@ public class HoldingsController {
 			throw new ResponseStatusException(HttpStatus.BAD_REQUEST, "Invalid request");
 		}
 
-		logger.info("Successful retrieval");
+		logger.info("Successful deletion");
 		return ResponseEntity.ok(rowsAffected);
 	}
 	
 	@PostMapping("/update")
-	public ResponseEntity<Integer> updateHoldings(@RequestBody Holding holding) {
+	public ResponseEntity<Integer> updateHoldings(@RequestBody HoldingReturn holding) {
 		int rowsAffected = 0;
 
 		try {
@@ -92,12 +92,12 @@ public class HoldingsController {
 			throw new ResponseStatusException(HttpStatus.BAD_REQUEST, "Invalid request");
 		}
 
-		logger.info("Successful retrieval");
+		logger.info("Successful update");
 		return ResponseEntity.ok(rowsAffected);
 	}
 	
 	@PostMapping("/insert")
-	public ResponseEntity<Integer> insertHoldings(@RequestBody Holding holding) {
+	public ResponseEntity<Integer> insertHoldings(@RequestBody HoldingReturn holding) {
 		int rowsAffected = 0;
 
 		try {
@@ -112,7 +112,7 @@ public class HoldingsController {
 			throw new ResponseStatusException(HttpStatus.BAD_REQUEST, "Invalid request");
 		}
 
-		logger.info("Successful retrieval");
+		logger.info("Successful insert");
 		return ResponseEntity.ok(rowsAffected);
 	}
 	
