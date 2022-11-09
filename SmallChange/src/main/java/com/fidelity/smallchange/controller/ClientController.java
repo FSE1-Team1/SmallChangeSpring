@@ -98,7 +98,7 @@ public class ClientController {
 	}
 	
 	@DeleteMapping(value="/clients/{id}", produces=MediaType.APPLICATION_JSON_VALUE)
-	public DatabaseRequestResult deleteClient(@PathVariable String id) {
+	public DatabaseRequestResult queryForDeleteClient(@PathVariable String id) {
 		int rows = 0;
 		try {
 			rows = service.queryToDeleteClient(id);

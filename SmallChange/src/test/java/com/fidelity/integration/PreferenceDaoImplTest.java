@@ -40,13 +40,13 @@ class PreferenceDaoImplTest {
 		
 	}
 	
-	@Test 
-	void testInsertPreference() {
-		Preferences preference = new Preferences("ea0dd5f8-51b8-40b4-ab1e-a386a1c2c511","Save Money","Below Average","40,001 - 60,000","5-7 years");
-
-		int count = dao.insertPreference(preference);
-				assertEquals(count,1);
-	}
+//	@Test 
+//	void testInsertPreference() {
+//		Preferences preference = new Preferences("ea0dd5f8-51b8-40b4-ab1e-a386a1c2c511","Save Money","Below Average","40,001 - 60,000","5-7 years");
+//
+//		int count = dao.insertPreference(preference);
+//				assertEquals(count,1);
+//	}
 
 	@Test
 	void testUpdatePreferences() {
