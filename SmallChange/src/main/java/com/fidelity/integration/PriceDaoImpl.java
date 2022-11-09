@@ -73,4 +73,22 @@ public class PriceDaoImpl implements PriceDao {
 		return this.priceMapper.queryPrice(instrument_id);
 	}
 
+	@Override
+	public void insertPrice(Price price) {
+		// TODO Auto-generated method stub
+		this.priceMapper.insertPrice(price);
+	}
+
+	@Override
+	public void updatePrice(Price price) {
+		// TODO Auto-generated method stub
+		this.priceMapper.updatePrice(price);
+	}
+
+	@Override
+	public void deletePrice(String instrumentId) {
+		// TODO Auto-generated method stub
+		this.priceMapper.deletePrice(instrumentId);
+	}
+
 }

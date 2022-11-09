@@ -15,5 +15,11 @@ public interface PriceDao {
 	
 	public void updateAskPrice(String instrument_id, BigDecimal new_ask_price);
 	
+	public void insertPrice(Price price);
+	
+	public void updatePrice(Price price);
+	
+	public void deletePrice(String instrumentId);
+	
 
 }

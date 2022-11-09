@@ -19,6 +19,7 @@ import org.springframework.test.context.junit.jupiter.SpringExtension;
 import org.springframework.transaction.annotation.Transactional;
 
 import com.fidelity.model.Holding;
+import com.fidelity.model.HoldingReturn;
 import com.fidelity.model.Instrument;
 import com.fidelity.model.Price;
 
@@ -38,7 +39,7 @@ class HoldingDaoImpTest {
 	@Test
 	void test() {
 		String id="ea0dd5f8-51b8-40b4-ab1e-a386a1c2c515" ;
-		List<Holding> holdings=dao.getAllHoldings(id);
+		List<HoldingReturn> holdings=dao.getAllHoldings(id);
 		assert holdings.size()>0;
 	}
 	
@@ -58,8 +59,9 @@ class HoldingDaoImpTest {
 		BigDecimal noOfShares= new BigDecimal(10);
 		String id="1";
 		Holding holding =new Holding(id,instrument,direction,noOfShares);
+		HoldingReturn holdingReturn = new HoldingReturn(holding.getInstrument().getInstrumentId(), holding.getNoOfShares(), holding.getNoOfShares().divide(new BigDecimal(holding.getInstrument().getMaxQuantity())), holding.getDirection(), holding.getPrice(), holding.getNoOfShares().multiply(holding.getPrice()), holding.getGain(), holding.getClientId());
 		
-		int total = dao.insertHolding(holding);
+		int total = dao.insertHolding(holdingReturn);
 		assertEquals(total, 1);
 	}
 	
@@ -79,7 +81,9 @@ class HoldingDaoImpTest {
 		BigDecimal noOfShares= new BigDecimal(10);
 		String id="1";
 		Holding holding =new Holding(id,instrument,direction,noOfShares);
-		dao.insertHolding(holding);
+		HoldingReturn holdingReturn = new HoldingReturn(holding.getInstrument().getInstrumentId(), holding.getNoOfShares(), holding.getNoOfShares().divide(new BigDecimal(holding.getInstrument().getMaxQuantity())), holding.getDirection(), holding.getPrice(), holding.getNoOfShares().multiply(holding.getPrice()), holding.getGain(), holding.getClientId());
+		
+		dao.insertHolding(holdingReturn);
 		
 		int one = dao.getAllHoldings(id).size();
 		dao.deleteHolding(id, instrumentId);
@@ -103,10 +107,12 @@ class HoldingDaoImpTest {
 		BigDecimal noOfShares= new BigDecimal(10);
 		String id="1";
 		Holding holding =new Holding(id,instrument,direction,noOfShares);
-		dao.insertHolding(holding);
+		HoldingReturn holdingReturn = new HoldingReturn(holding.getInstrument().getInstrumentId(), holding.getNoOfShares(), holding.getNoOfShares().divide(new BigDecimal(holding.getInstrument().getMaxQuantity())), holding.getDirection(), holding.getPrice(), holding.getNoOfShares().multiply(holding.getPrice()), holding.getGain(), holding.getClientId());
 		
-		holding.setNoOfShares(new BigDecimal(100));
-		int total= dao.updateHolding(holding);
+		dao.insertHolding(holdingReturn);
+		
+		holdingReturn.setShares(new BigDecimal(100));
+		int total= dao.updateHolding(holdingReturn);
 		assertEquals(total,1);
 	}
 

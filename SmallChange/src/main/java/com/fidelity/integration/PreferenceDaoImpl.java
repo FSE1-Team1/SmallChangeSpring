@@ -36,7 +36,12 @@ public class PreferenceDaoImpl implements PreferenceDao {
 	@Override
 	public int updatePreference(Preferences preference) {
 		// TODO Auto-generated method stub
-		return mapper.updatePreferences(preference);
+		String clientId = preference.getClientId();
+		String investmentPurpose = preference.getInvestmentPurpose();
+		String riskTolerance = preference.getRiskTolerance();
+		String incomeCategory = preference.getIncomeCategory();
+		String lengthOfInvestment = preference.getLengthOfInvestment();
+		return mapper.updatePreferences(clientId,investmentPurpose,riskTolerance,incomeCategory,lengthOfInvestment);
 	}
 
 	@Override

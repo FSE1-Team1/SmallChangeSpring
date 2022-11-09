@@ -3,6 +3,8 @@ package com.fidelity.integration;
 import java.math.BigDecimal;
 import java.util.List;
 
+import org.apache.ibatis.annotations.Delete;
+import org.apache.ibatis.annotations.Insert;
 import org.apache.ibatis.annotations.One;
 import org.apache.ibatis.annotations.Result;
 import org.apache.ibatis.annotations.Results;
@@ -34,5 +36,20 @@ public interface PriceMapper {
 			UPDATE SC_PRICE SET "ask_price"=#{newAskPrice} WHERE "instrument_id"=#{instrumentId}
 			""")
 	void updateAskPrice(String instrumentId, BigDecimal newAskPrice);
+	
+	@Insert("""
+			INSERT INTO SC_PRICE("instrument_id","bid_price","ask_price","timestamp") VALUES (#{instrumentId},#{bidPrice},#{askPrice},#{timeStamp})
+			""")
+	void insertPrice(Price price);
+	
+	@Update("""
+			UPDATE SC_PRICE SET "bid_price"=#{bidPrice},"ask_price"=#{askPrice},"timestamp"=#{timeStamp} WHERE "instrument_id"=#{instrumentId}
+			""")
+	void updatePrice(Price price);
+	
+	@Delete("""
+			DELETE FROM SC_PRICE WHERE "instrument_id"=#{instrumentId}
+			""")
+	void deletePrice(String instrumentId);
 
 }

@@ -47,10 +47,10 @@ class HoldingTest {
 		assertEquals(holding.getPrice(), new BigDecimal(50).setScale(2));
 	}
 	
-//	@Test
-//	void testGetGain() {
-//		assertEquals(holding.getGain(), new BigDecimal(0).setScale(2));
-//	}
+	@Test
+	void testGetGain() {
+		assertEquals(holding.getGain(), new BigDecimal(0));
+	}
 	
 	@Test
 	void testGetShare() {

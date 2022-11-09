@@ -11,7 +11,7 @@ import com.fidelity.model.Preferences;
 public interface PreferenceMapper {
 	
 	@Select("""
-			select "client_id" as clientId, "investment_purpose" as investmentPurpose, "risk_tolerance" as riskTolerance, "income_category" as incomeCategory, "length_of_investment" as lenghthOfInvestment from sc_preferences where "client_id" = #{c_id}
+			select "client_id" as clientId, "investment_purpose" as investmentPurpose, "risk_tolerance" as riskTolerance, "income_category" as incomeCategory, "length_of_investment" as lengthOfInvestment from sc_preferences where "client_id" = #{c_id}
 			""")
 	public Preferences getPreference(@Param("c_id") String c_id);
 	
@@ -23,9 +23,9 @@ public interface PreferenceMapper {
 
 
 	@Update("""
-			UPDATE SC_PREFERENCES SET "investment_purpose" = #{investmentPurpose} , "risk_tolerance" = #{riskTolerance} , "income_category" =#{incomeCategory}, "length_of_investment" = #{lenghthOfInvestment} where "client_id" = #{clientId}
+			UPDATE SC_PREFERENCES SET "investment_purpose" = #{investmentPurpose} , "risk_tolerance" = #{riskTolerance} , "income_category" =#{incomeCategory}, "length_of_investment" = #{lengthOfInvestment} where "client_id" = #{clientId}
 			""")
-	public int updatePreferences(Preferences preference);
+	public int updatePreferences(String clientId, String investmentPurpose, String riskTolerance, String incomeCategory, String lengthOfInvestment);
 
 	@Delete("""
 			DELETE FROM SC_PREFERENCES WHERE "client_id" = #{clientId}

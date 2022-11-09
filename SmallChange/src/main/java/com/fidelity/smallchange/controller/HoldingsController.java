@@ -18,6 +18,7 @@ import org.springframework.web.server.ResponseStatusException;
 
 import com.fidelity.integration.HoldingDaoImp;
 import com.fidelity.model.Holding;
+import com.fidelity.model.HoldingReturn;
 
 @RestController
 @RequestMapping("/holdings")
@@ -31,8 +32,8 @@ public class HoldingsController {
 
 	
 	@GetMapping("/all/{clientId}")
-	public ResponseEntity<List<Holding>> getHoldings(@PathVariable String clientId) {
-		List<Holding> holdings = null;
+	public ResponseEntity<List<HoldingReturn>> getHoldings(@PathVariable String clientId) {
+		List<HoldingReturn> holdings = null;
 
 		try {
 			holdings = dao.getAllHoldings(clientId);
@@ -71,12 +72,12 @@ public class HoldingsController {
 			throw new ResponseStatusException(HttpStatus.BAD_REQUEST, "Invalid request");
 		}
 
-		logger.info("Successful retrieval");
+		logger.info("Successful deletion");
 		return ResponseEntity.ok(rowsAffected);
 	}
 	
 	@PostMapping("/update")
-	public ResponseEntity<Integer> updateHoldings(@RequestBody Holding holding) {
+	public ResponseEntity<Integer> updateHoldings(@RequestBody HoldingReturn holding) {
 		int rowsAffected = 0;
 
 		try {
@@ -91,12 +92,12 @@ public class HoldingsController {
 			throw new ResponseStatusException(HttpStatus.BAD_REQUEST, "Invalid request");
 		}
 
-		logger.info("Successful retrieval");
+		logger.info("Successful update");
 		return ResponseEntity.ok(rowsAffected);
 	}
 	
 	@PostMapping("/insert")
-	public ResponseEntity<Integer> insertHoldings(@RequestBody Holding holding) {
+	public ResponseEntity<Integer> insertHoldings(@RequestBody HoldingReturn holding) {
 		int rowsAffected = 0;
 
 		try {
@@ -111,7 +112,7 @@ public class HoldingsController {
 			throw new ResponseStatusException(HttpStatus.BAD_REQUEST, "Invalid request");
 		}
 
-		logger.info("Successful retrieval");
+		logger.info("Successful insert");
 		return ResponseEntity.ok(rowsAffected);
 	}
 	
