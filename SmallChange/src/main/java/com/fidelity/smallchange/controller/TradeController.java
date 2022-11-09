@@ -46,7 +46,8 @@ public class TradeController {
 	
 	@PutMapping(value = "/history/insert", produces=MediaType.APPLICATION_JSON_VALUE)
 	public ResponseEntity<Integer> insertTradeHistory(@RequestBody TradeHistory history){
-		
+		System.out.println("inside insert trade history");
+		history.setCashValue(history.getExecutionPrice());
 		ResponseEntity<Integer> result;
 		int count;
 			try
@@ -59,7 +60,7 @@ public class TradeController {
 				
 			}
 			
-			if(count == 0  )
+			if(count == 1  )
 				result = ResponseEntity.ok(count);
 			else
 				result = ResponseEntity.noContent().build();

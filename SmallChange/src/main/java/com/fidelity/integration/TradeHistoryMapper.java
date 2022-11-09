@@ -14,7 +14,7 @@ public interface TradeHistoryMapper {
 
 	@Select("""
 			SELECT "client_id" as clientId, "cash_value" as cashValue,"instrument_id" as instrumentId,"direction" as direction, "quantity" as quantity,"execution_price" as executionPrice,"trade_id" as tradeId, "trade_timestamp" as tradeTimestamp FROM sc_trade_history
-			where "client_id" = #{id}
+			where "client_id" = #{id} order by "trade_timestamp" desc
 			""")
 	public List<TradeHistory> getTradeHistory(@Param("id") String id);
 	
