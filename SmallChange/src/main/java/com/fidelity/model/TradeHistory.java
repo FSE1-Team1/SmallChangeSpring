@@ -1,6 +1,7 @@
 package com.fidelity.model;
 
 import java.math.BigDecimal;
+import java.sql.Timestamp;
 import java.time.LocalDate;
 import java.util.Objects;
 
@@ -12,13 +13,13 @@ public class TradeHistory {
 	private String clientId;
 	private String tradeId;
 	private BigDecimal cashValue ;
-	private LocalDate tradeTimestamp;
+	private Timestamp tradeTimestamp;
 	
 	public TradeHistory() {
 		
 	}
 	public TradeHistory(String instrumentId, BigDecimal quantity, BigDecimal executionPrice, String direction,
-			String clientId, String tradeId, BigDecimal cashValue, LocalDate tradeTimestamp) {
+			String clientId, String tradeId, BigDecimal cashValue, Timestamp tradeTimestamp) {
 		
 		if(instrumentId == null || clientId == null || tradeId == null || instrumentId.isEmpty() || clientId.isEmpty() || tradeId.isEmpty())
 			throw new IllegalArgumentException("instument id,client id , trade id cannot be null or empty");
@@ -83,10 +84,10 @@ public class TradeHistory {
 	public void setCashValue(BigDecimal cashValue) {
 		this.cashValue = cashValue;
 	}
-	public LocalDate getTradeTimestamp() {
+	public Timestamp getTradeTimestamp() {
 		return tradeTimestamp;
 	}
-	public void setTradeTimestamo(LocalDate tradeTimestamp) {
+	public void setTradeTimestamo(Timestamp tradeTimestamp) {
 		this.tradeTimestamp = tradeTimestamp;
 	}
 	@Override
