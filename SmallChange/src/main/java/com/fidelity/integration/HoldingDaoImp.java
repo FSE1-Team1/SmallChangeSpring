@@ -48,7 +48,30 @@ public class HoldingDaoImp implements HoldingDao{
 
 	@Override
 	public int updateHolding(HoldingReturn holding) {
-		return holdingMapper.updateHolding(holding.getClientId(), holding.getSymbol(), holding.getType(),holding.getShares());
+		List<Holding> holdings = holdingMapper.getAllHoldings(holding.getClientId());
+		BigDecimal total= new BigDecimal(0);
+		int o=0;
+		for(Holding holding1: holdings) {
+//			logger.info(holding1.getClientId());
+//			logger.info(holding.getClientId());
+//			logger.info(holding1.getInstrument().getInstrumentId());
+//			logger.info(holding.getSymbol());
+			if(holding1.getClientId().contentEquals(holding.getClientId()) && holding1.getInstrument().getInstrumentId().contentEquals(holding.getSymbol())) {
+				total = holding1.getNoOfShares();
+				o=1;
+			}
+		}
+		if(o==0) {
+			//logger.info("aaaaaa");
+			return insertHolding(holding);
+			
+			
+		}
+		//logger.info("oooo");
+		if(holding.getShares().add(total).equals(new BigDecimal(0))) {
+			return deleteHolding(holding.getClientId(), holding.getSymbol());
+		}
+		return holdingMapper.updateHolding(holding.getClientId(), holding.getSymbol(), holding.getType(),holding.getShares().add(total));
 	}
 	
 	
