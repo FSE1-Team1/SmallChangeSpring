@@ -83,7 +83,7 @@ ALTER TABLE SC_PREFERENCES ADD CONSTRAINT SC_PREFERENCES_FK FOREIGN KEY ("client
 ALTER TABLE SC_TRADE_HISTORY ADD CONSTRAINT SC_TRADE_HISTORY_FK FOREIGN KEY ("client_id") REFERENCES SC_CLIENT ("client_id") ENABLE;
 ALTER TABLE SC_PRICE ADD CONSTRAINT SC_PRICE_FK FOREIGN KEY ("instrument_id") REFERENCES SC_INSTRUMENT ("instrument_id") ENABLE;
 
-INSERT INTO SC_CLIENT ("client_id", "first_name", "last_name", "dob", "email", "password", "country", "postal_code") VALUES ('ea0dd5f8-51b8-40b4-ab1e-a386a1c2c515', 'ZTI', '1', '', 'zti@gmail.com', 'Testing123*','IN', '18181818');
+INSERT INTO SC_CLIENT ("client_id", "first_name", "last_name", "dob", "email", "password", "country", "postal_code") VALUES ('ea0dd5f8-51b8-40b4-ab1e-a386a1c2c515', 'ZTI', '1', to_date('2001-MAR-03', 'YYYY-MON-DD'), 'zti@gmail.com', 'Testing123*','IN', '18181818');
 INSERT INTO SC_CLIENT_IDENTIFICATION ("client_id", "type", "value") VALUES ('ea0dd5f8-51b8-40b4-ab1e-a386a1c2c515', 'Passport', '10101010');
 INSERT INTO SC_INSTRUMENT("instrument_id","instrument_description","external_id","external_id_type","min_quantity","max_quantity","category_id") VALUES ('T67897','USA, Note 2.5 31jan2021 2Y','9128285X4','CUSIP',100,1000,'GOVT');
 INSERT INTO SC_PRICE ("instrument_id","bid_price","ask_price","timestamp") VALUES ('T67897',0.99828125,0.998125,TO_DATE('2022-01-22', 'yyyy-mm-dd'));
