@@ -92,8 +92,8 @@ public class TradeHistory {
 	}
 	@Override
 	public int hashCode() {
-		return Objects.hash(cashValue, clientId, direction, executionPrice, instrumentId, quantity, tradeTimestamp,
-				tradeId);
+		return Objects.hash(cashValue, clientId, direction, executionPrice, instrumentId, quantity, tradeId,
+				tradeTimestamp);
 	}
 	@Override
 	public boolean equals(Object obj) {
@@ -107,13 +107,13 @@ public class TradeHistory {
 		return Objects.equals(cashValue, other.cashValue) && Objects.equals(clientId, other.clientId)
 				&& Objects.equals(direction, other.direction) && Objects.equals(executionPrice, other.executionPrice)
 				&& Objects.equals(instrumentId, other.instrumentId) && Objects.equals(quantity, other.quantity)
-				&& Objects.equals(tradeTimestamp, other.tradeTimestamp) && Objects.equals(tradeId, other.tradeId);
+				&& Objects.equals(tradeId, other.tradeId) && Objects.equals(tradeTimestamp, other.tradeTimestamp);
 	}
 	@Override
 	public String toString() {
 		return "TradeHistory [instrumentId=" + instrumentId + ", quantity=" + quantity + ", executionPrice="
 				+ executionPrice + ", direction=" + direction + ", clientId=" + clientId + ", tradeId=" + tradeId
-				+ ", cashValue=" + cashValue + ", tradeHistory=" + tradeTimestamp + "]";
+				+ ", cashValue=" + cashValue + ", tradeTimestamp=" + tradeTimestamp + "]";
 	}
 	
 	
