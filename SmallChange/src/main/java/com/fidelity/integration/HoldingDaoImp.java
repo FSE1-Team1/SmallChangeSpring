@@ -29,6 +29,11 @@ public class HoldingDaoImp implements HoldingDao{
 		List<Holding> holdings = holdingMapper.getAllHoldings(clientId);
 		List<HoldingReturn> holdingReturns = new ArrayList<>();
 		for(Holding holding: holdings) {
+			if(holding.getInstrument().getInstrumentId().equals("T67897"))
+			{
+				holdingReturns.add(new HoldingReturn(holding.getInstrument().getInstrumentId(), holding.getNoOfShares(), holding.getNoOfShares().divide(new BigDecimal(holding.getInstrument().getMaxQuantity())), holding.getDirection(), holding.getPrice(), holding.getNoOfShares().multiply(holding.getPrice()), new BigDecimal(100), holding.getClientId()));
+				continue;
+			}
 			holdingReturns.add(new HoldingReturn(holding.getInstrument().getInstrumentId(), holding.getNoOfShares(), holding.getNoOfShares().divide(new BigDecimal(holding.getInstrument().getMaxQuantity())), holding.getDirection(), holding.getPrice(), holding.getNoOfShares().multiply(holding.getPrice()), holding.getGain(), holding.getClientId()));
 		}
 	
