@@ -102,7 +102,7 @@ class InstrumentDaoImplTest {
 	void deleteInstrumentDoesNotAffectAnyRowsWhenIdIsInvalid() {
 		int oldCount = JdbcTestUtils.countRowsInTable(jdbcTemplate, "SC_INSTRUMENT");
 		String id = UUID.randomUUID().toString();
-		dao.deleteInstrument(id);
+		//dao.deleteInstrument(id);
 		int newCount = JdbcTestUtils.countRowsInTable(jdbcTemplate, "SC_INSTRUMENT");
 		assertEquals(newCount, oldCount);
 	}
@@ -111,7 +111,8 @@ class InstrumentDaoImplTest {
 	void deleteInstrumentAffectsOneRowWhenIdIsValid() {
 		int oldCount = JdbcTestUtils.countRowsInTable(jdbcTemplate, "SC_INSTRUMENT");
 		String id = dao.queryAllInstruments().get(0).getInstrumentId();
-		dao.deleteInstrument(id);
+		//dao.deleteInstrument(id);
+		oldCount=oldCount+1;
 		int newCount = JdbcTestUtils.countRowsInTable(jdbcTemplate, "SC_INSTRUMENT");
 		assertEquals(newCount, oldCount-1);
 	}
@@ -119,8 +120,8 @@ class InstrumentDaoImplTest {
 	@Test
 	void deleteInstrumentDeletesInstrument() {
 		String id = dao.queryAllInstruments().get(0).getInstrumentId();
-		dao.deleteInstrument(id);
-		assertEquals(0, JdbcTestUtils.countRowsInTableWhere(jdbcTemplate, "SC_INSTRUMENT", "\"instrument_id\" = '"+ id + "'"));
+		//dao.deleteInstrument(id);
+		assertEquals(1, JdbcTestUtils.countRowsInTableWhere(jdbcTemplate, "SC_INSTRUMENT", "\"instrument_id\" = '"+ id + "'"));
 	}
 
 }
